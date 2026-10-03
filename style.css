@@ -56,14 +56,24 @@ main {
   padding: 1.5rem; /* 24px de respiro nas laterais (mobile) */
 }
 
+main{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
 /* ---------- Card ---------- */
+
+
 .card {
+  
+  margin-top: 1.5rem;
   width: 100%;
   max-width: 21.875rem; /* 350px no desktop */
   padding: 1.5rem;      /* 24px */
   background-color: var(--blue-900);
   border-radius: 1rem;
   box-shadow: 0 2rem 3rem -1rem hsla(217, 54%, 5%, 0.6);
+  
 }
 
 /* ---------- Imagem + overlay (hover) ---------- */
