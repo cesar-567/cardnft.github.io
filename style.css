@@ -1,0 +1,205 @@
+/* ==========================================================
+   NFT preview card component
+   Design sizes: Mobile 375px | Desktop 1440px
+   ========================================================== */
+
+/* ---------- Design tokens (style-guide.md) ---------- */
+:root {
+  --blue-500: hsl(215, 51%, 70%);   /* texto secundário */
+  --cyan-400: hsl(178, 100%, 50%);  /* destaque / hover */
+  --blue-950: hsl(217, 54%, 11%);   /* fundo principal */
+  --blue-900: hsl(216, 50%, 16%);   /* fundo do card */
+  --blue-800: hsl(215, 32%, 27%);   /* linha divisória */
+  --white: hsl(0, 0%, 100%);
+
+  --font: "Outfit", sans-serif;
+  --fs-body: 1.125rem; /* 18px */
+  --transition: 0.3s ease;
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---------- Base ---------- */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--blue-950);
+  font-family: var(--font);
+  font-size: var(--fs-body);
+  font-weight: 300;
+  color: var(--blue-500);
+}
+
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem; /* 24px de respiro nas laterais (mobile) */
+}
+
+/* ---------- Card ---------- */
+.card {
+  width: 100%;
+  max-width: 21.875rem; /* 350px no desktop */
+  padding: 1.5rem;      /* 24px */
+  background-color: var(--blue-900);
+  border-radius: 1rem;
+  box-shadow: 0 2rem 3rem -1rem hsla(217, 54%, 5%, 0.6);
+}
+
+/* ---------- Imagem + overlay (hover) ---------- */
+.card__image {
+  position: relative;
+  display: block;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.card__image > img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.card__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: hsla(178, 100%, 50%, 0.5); /* Cyan 400 a 50% */
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.card__image:hover .card__overlay,
+.card__image:focus-visible .card__overlay {
+  opacity: 1;
+}
+
+/* ---------- Título ---------- */
+.card__title {
+  margin-top: 1.5rem;
+  font-size: 1.375rem; /* 22px */
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--white);
+}
+
+.card__title a {
+  transition: color var(--transition);
+}
+
+.card__title a:hover,
+.card__title a:focus-visible {
+  color: var(--cyan-400);
+}
+
+/* ---------- Descrição ---------- */
+.card__description {
+  margin-top: 0.75rem;
+  line-height: 1.55;
+}
+
+/* ---------- Preço e tempo ---------- */
+.card__info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.25rem;
+  font-size: 1rem;
+}
+
+.card__price,
+.card__time {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card__price {
+  font-weight: 600;
+  color: var(--cyan-400);
+}
+
+.card__time {
+  font-weight: 400;
+}
+
+/* ---------- Divisória ---------- */
+.card__divider {
+  height: 1px;
+  margin-top: 1.25rem;
+  border: 0;
+  background-color: var(--blue-800);
+}
+
+/* ---------- Autor ---------- */
+.card__author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  font-size: 0.9375rem; /* 15px */
+}
+
+.card__avatar {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--white);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.card__author a {
+  color: var(--white);
+  transition: color var(--transition);
+}
+
+.card__author a:hover,
+.card__author a:focus-visible {
+  color: var(--cyan-400);
+}
+
+/* ---------- Atribuição ---------- */
+.attribution {
+  padding: 1rem;
+  font-size: 0.6875rem;
+  text-align: center;
+  color: var(--blue-500);
+}
+
+.attribution a {
+  color: var(--cyan-400);
+}
+
+/* ---------- Acessibilidade ---------- */
+:focus-visible {
+  outline: 2px solid var(--cyan-400);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
